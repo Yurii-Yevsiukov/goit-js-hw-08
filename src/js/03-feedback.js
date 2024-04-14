@@ -6,6 +6,8 @@ const refs = {
   textareaMessage: document.querySelector('textarea[name="message"]'),
 };
 
+const { email, message } = refs.form.elements;
+
 const LOCALSTORAGE_KEY = 'feedback-form-state';
 
 populateInputs();
@@ -24,6 +26,7 @@ function onInput (e) {
 
 function onFormSubmit (e) {
   e.preventDefault();
+  console.log({ email: email.value, message: message.value });
   e.currentTarget.reset();
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
